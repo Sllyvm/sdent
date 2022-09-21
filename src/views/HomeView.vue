@@ -23,11 +23,11 @@ export default {
     }
   },
   created() {
-    TestApi.getLogin(this.page,this.size).then(res=>{
-      console.log(res);
-    }).catch(error=>{
-      console.log(error);
-    })
+    // TestApi.getLogin(this.page,this.size).then(res=>{
+    //   console.log(res);
+    // }).catch(error=>{
+    //   console.log(error);
+    // })
     // http://ceshi5.dishait.cn/admin/login
     // TestApi.getNew()
     // console.log(TestApi.getNew());

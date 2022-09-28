@@ -204,10 +204,10 @@ return {
  methods: {
     async getNumberList(){
     
-            const {rows,total}=await  memberSo.getMember(this.page,this.size,this.queryParams)
+            const {rows,count}=await  memberSo.getMember(this.page,this.size,this.queryParams)
         
             this.numberList=rows
-                this.total=total
+                this.total=count
        
     },
      /**
@@ -245,9 +245,12 @@ return {
           type: 'warning'
         }).then( async() => {
            try {
+            this.page=1
+            this.handleRest('ruleForm')
              const del=await memberSo.getDel(id)
              this.$message.success('删除成功')
             // console.log(del);
+            this.getNumberList()
            } catch (error) {
             // console.log(error.message);
            }

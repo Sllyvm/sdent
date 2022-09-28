@@ -9,7 +9,7 @@ export const login =(data={})=>{
 }
 export const getUser=()=>{
     return request({
-        url:"/admin/userInfo",
+        url:"/admin/getUserInfo",
         method:"GET",
         
     })

@@ -280,10 +280,10 @@ import titleTable from '@/components/baseTable.vue'
             async getGoodsList() {
                 try {
                     const {
-                        total,
+                        count,
                         rows
                     } = await goodsApi.getMember(this.page, this.size, this.goodsQueryParams)
-                    this.total = total
+                    this.total = count
                     this.goodsList = rows
                 } catch (error) {
                     console.log(error);
@@ -377,6 +377,8 @@ import titleTable from '@/components/baseTable.vue'
                     type: 'warning'
                 }).then(async () => {
                     try {
+                        this.page=1
+                        this.FormReset()
                         const res = await goodsApi.getDel(id)
                         this.$message.success('删除成功')
                         this.getGoodsList()

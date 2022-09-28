@@ -98,7 +98,7 @@ export default {
       size: 10,
       queryParams: {
         name: '',
-        linkname: '',
+        linkman: '',
         mobile: '',
 
       },
@@ -107,7 +107,7 @@ export default {
       title: '',
       dialogForm: {
         name: "",
-        linkname: "",
+        linkman: "",
         mobile: "",
         remark: ""
       },
@@ -122,7 +122,7 @@ export default {
 					{
 						label: '联系人',
 						type: 'input',
-						prop: 'linkname'
+						prop: 'linkman'
 					},
 					{
 						label: '联系电话',
@@ -164,7 +164,7 @@ export default {
           label: '供应商名称'
         },
         {
-          prop: 'linkname',
+          prop: 'linkman',
           label: '联系人'
         },
         {
@@ -219,10 +219,10 @@ export default {
   methods: {
     async getNumberList() {
 
-      const { rows, total } = await supplier.getSupplier(this.page, this.size, this.queryParams)
+      const { rows, count } = await supplier.getSupplier(this.page, this.size, this.queryParams)
 
       this.numberList = rows
-      this.total = total
+      this.total = count
 
     },
     //  /**
@@ -266,9 +266,13 @@ export default {
         cancelButtonText: '取消',
         type: 'warning'
       }).then(async () => {
+
         this.$message.success("删除成功")
         try {
+          this.page=1
+          this.handleRest()
           const del = await supplier.getDelete(id)
+          this.getNumberList()
 
         } catch (error) {
           console.log(error.message);

@@ -256,10 +256,10 @@ import titleTable from '@/components/baseTable.vue'
             async getStaffList() {
                 const {
                     rows,
-                    total
+                    count
                 } = await staffApi.getMember(this.page, this.size, this.staffQueryForm)
                 this.staffList = rows
-                this.total = total
+                this.total = count
             },
             // 搜索
             search() {

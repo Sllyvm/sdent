@@ -2,7 +2,7 @@ import request from '../utils/request'
 // 获取供应商列表
 const getSupplier=(page,size,data)=>{
     return request({
-        url:`/shop/list/search/${page}/${size}`,
+        url:`/supplier/list/search/${page}/${size}`,
         method:"POST",
         data
     })
@@ -10,7 +10,7 @@ const getSupplier=(page,size,data)=>{
 // 添加接口
 const getAddSupplier=(data)=>{
     return request({
-        url:`/shop`,
+        url:`/supplier`,
         method:'POST',
         data
     })
@@ -18,14 +18,14 @@ const getAddSupplier=(data)=>{
 // 单个数据接口
 const getFirstList=(id)=>{
     return request({
-        url:`/shop/${id}`,
+        url:`/supplier/${id}`,
         method:"GET"
     })
 }
 // 编辑接口
 const getEditList=(id,data)=>{
         return request({
-            url:`/shop/${id}`,
+            url:`/supplier/${id}`,
             method:"PUT",
             data
 
@@ -34,7 +34,7 @@ const getEditList=(id,data)=>{
 // 删除接口
 const getDelete=(id)=>{
     return request({
-        url:`/shop/${id}`,
+        url:`/supplier/${id}`,
         method:"DELETE"
     })
 }

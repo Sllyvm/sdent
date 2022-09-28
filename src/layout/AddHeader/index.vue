@@ -7,7 +7,7 @@
     <div class="right-title">
              <el-dropdown @command="handleCommand">
       <span class="el-dropdown-link">
-            {{this.$store.getters.userInfo.name ||""}}<i class="el-icon-arrow-down el-icon--right"></i>
+            {{this.$store.getters.userInfo.username ||""}}<i class="el-icon-arrow-down el-icon--right"></i>
         </span>
         <el-dropdown-menu slot="dropdown">
             <el-dropdown-item icon="el-icon-edit" command="changePass">修改密码</el-dropdown-item>

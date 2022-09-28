@@ -47,13 +47,13 @@ return {
                 this.handleLogin()
         })
     },
-    handleLogin(){
-        const token=this.$store.dispatch("logins",this.form)
+    async handleLogin(){
+        const token=await this.$store.dispatch("logins",this.form)
         if(!token) return
-        const userInfo=this.$store.dispatch("handleUserInfo")
+        const userInfo=await this.$store.dispatch("handleUserInfo")
         if(!userInfo) return
         Message.success("登录成功")
-        this.$router.push("/index")
+        this.$router.push("/")
     }
     // // async handleLogin(){
     // //     try {
